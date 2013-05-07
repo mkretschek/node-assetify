@@ -14,7 +14,7 @@
   ],
   "bugs" : "https://github.com/mkretschek/node-assetify/issues",
   "repository" : {
-    "type" : "hg",
+    "type" : "git",
     "url" : "https://github.com/mkretschek/node-assetify.git"
   },
   "scripts" : {
