@@ -1,0 +1,35 @@
+{
+  "name" : "assetify",
+  "description" : "Helpers for working with static files in express projects.",
+  "version" : "0.0.1",
+  "author" : {
+    "name" : "Mathias Kretschek",
+    "email" : "mathias@kretschek.com.br"
+  },
+  "contributors" : [
+    {
+      "name" : "Mathias Kretschek",
+      "email" : "mathias@kretschek.com.br"
+    }
+  ],
+  "bugs" : "https://github.com/mkretschek/node-assetify/issues",
+  "repository" : {
+    "type" : "hg",
+    "url" : "https://github.com/mkretschek/node-assetify.git"
+  },
+  "scripts" : {
+    "test" : "mocha -R spec -u bdd"
+  },
+  "dependencies" : {
+    "underscore" : "1.4"
+  },
+  "devDependencies" : {
+    "express" : "3.0",
+    "mocha" : "1.9",
+    "expect.js" : "0.2"
+  },
+  "engine" : {
+    "node" : "0.10"
+  },
+  "main" : "./index.js"
+}
