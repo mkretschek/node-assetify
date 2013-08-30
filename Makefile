@@ -1,6 +1,4 @@
 
-ENVIRONMENTS = development test integration staging production
-
 
 check: test lint
 
