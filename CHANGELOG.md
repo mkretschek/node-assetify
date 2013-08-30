@@ -11,6 +11,6 @@ First version published to the npm registry.
 * add: `#express()` for configuring an express app;
 * add: `#provides()` for defining sub-builders. This is a new method
   for defining sub-builders. The previous method is no longer supported;
-* changed: `assetled()` signature, now taking a base path and a string or
+* changed: `assetly()` signature, now taking a base path and a string or
   object with query string data. It NO LONGER accepts an object defining
   sub-builders;

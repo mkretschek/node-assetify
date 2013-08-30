@@ -1,5 +1,5 @@
 {
-  "name" : "assetled",
+  "name" : "assetly",
   "description" : "Helpers for working with static files in express projects.",
   "version" : "0.1.0",
   "author" : {
@@ -12,10 +12,10 @@
       "email" : "mathias@kretschek.com.br"
     }
   ],
-  "bugs" : "https://github.com/mkretschek/node-assetled/issues",
+  "bugs" : "https://github.com/mkretschek/node-assetly/issues",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/mkretschek/node-assetled.git"
+    "url" : "https://github.com/mkretschek/node-assetly.git"
   },
   "scripts" : {
     "test" : "NODE_ENV=test ./node_modules/.bin/mocha --check-leaks --colors --recursive -R dot -u bdd ./test"

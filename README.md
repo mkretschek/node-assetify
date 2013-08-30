@@ -1,21 +1,21 @@
-node-assetled
+node-assetly
 =============
 
 Utilities for working with assets, especially assets' URIs (right now, this
 is all it does, heh).
 
-[![Build Status](https://travis-ci.org/mkretschek/node-assetled.png?branch=master)](https://travis-ci.org/mkretschek/node-assetled)
-[![NPM version](https://badge.fury.io/js/assetled.png)](http://badge.fury.io/js/assetled)
+[![Build Status](https://travis-ci.org/mkretschek/node-assetly.png?branch=master)](https://travis-ci.org/mkretschek/node-assetly)
+[![NPM version](https://badge.fury.io/js/assetly.png)](http://badge.fury.io/js/assetly)
 
 
 If you want an easier way to set your assets' URIs, being able to change
-them in a single place, `assetled` may come in handy. It helps creating
+them in a single place, `assetly` may come in handy. It helps creating
 builder functions for generating URIs. Like this:
 
 ```js
 var assets;
 
-assets = assetled('//cdn.example.net')
+assets = assetly('//cdn.example.net')
   .provides('js', ['js', {v : 1}])
   .provides('css')
   .provides('img');
@@ -53,7 +53,7 @@ Giving you...
 ```
 
 Should you ever need to change your assets folders, all you have to do is
-change your `assetled` setup.
+change your `assetly` setup.
 
 
 Installation
@@ -61,7 +61,7 @@ Installation
 
 From NPM.
 
-    npm install assetled
+    npm install assetly
 
 Usage
 -----
@@ -69,14 +69,14 @@ Usage
 Require it.
 
 ```js
-var assetled = require('assetled');
+var assetly = require('assetly');
 ```
 
 Creating a builder is very straight forward. A simple builder would look
 like this:
 
 ```js
-var assets = assetled('//cdn.example.com');
+var assets = assetly('//cdn.example.com');
 assets('main.js'); // '//cdn.example.com/main.js'
 assets('css/base.css'); // '//cdn.example.com/css/base.css'
 ```
@@ -87,7 +87,7 @@ You can see more complex examples in under "Sub-builders", read on.
 ### Sub-builders
 
 Usually you'll want to organize your assets in sub-directories or some
-file structure. To help you handle this, `assetled` supports sub-builders.
+file structure. To help you handle this, `assetly` supports sub-builders.
 They append to their parent's path, going deeper into your folder
 structure.
 
@@ -101,7 +101,7 @@ its parent, while the later makes the new builder use a folder with the
 same name as the builder.
 
 ```js
-var assets = assetled('//cdn.example.com');
+var assets = assetly('//cdn.example.com');
 
 assets
   .provides('scripts', null)     // stays in the same folder
@@ -114,10 +114,10 @@ assets.images('foo.jpg'); // '//cdn.example.com/img/foo.jpg'
 ```
 
 You can use sub-builders to set a multi-root structure by starting with a
-call to `assetled()` with no args.
+call to `assetly()` with no args.
 
 ```js
-assets = assetled();
+assets = assetly();
 
 assets
   .provides('scripts', '//s.example.com')
@@ -130,7 +130,7 @@ assets.images('logo.png'); // '//img.example.com/logo.png'
 Builders can be nested as needed:
 
 ```js
-var assets = assetled('//example.com');
+var assets = assetly('//example.com');
 assets.provides('sub');
 assets.sub.provides('subsub');
 
@@ -140,12 +140,12 @@ assets.sub.subsub('subsubsub.txt'); // '//example.com/sub/subsub/subsubsub.txt'
 
 ### Querystrings
 
-`assetled` allows you to set query string data in your builders. This way
+`assetly` allows you to set query string data in your builders. This way
 you don't need to set it to every URI and, when a query param changes, you
 can update your code very quickly.
 
 ```js
-var assets = assetled('//cdn.example.com', {v : 1, s : 'm'});
+var assets = assetly('//cdn.example.com', {v : 1, s : 'm'});
 
 assets('foo.jpg'); // '//cdn.example.com/foo.jpg?v=1&s=m'
 
@@ -161,7 +161,7 @@ Note that query string data defined in the root builder, will be
 inheritted by all sub-builders.
 
 ```js
-var assets = assetled('//cdn.example.com', {v : 1});
+var assets = assetly('//cdn.example.com', {v : 1});
 
 // Inherits {v : 1} from assets.
 assets.provides('js');
@@ -184,7 +184,7 @@ If you are working with [express][], there's a helper method for making
 your root builder available to your application and in your templates.
 
 ```js
-var assets = assetled('//cdn.example.com');
+var assets = assetly('//cdn.example.com');
 
 assets.express(app);
 
@@ -203,7 +203,7 @@ If you think 'assets' is not a good property, you can change it with the
 `propertyName` option of `#express()`:
 
 ```js
-var assets = assetled('//cdn.example.com');
+var assets = assetly('//cdn.example.com');
 assets.express(app, {propertyName : 'static'});
 
 app.static === assets; // true
@@ -244,6 +244,6 @@ Created by [Mathias Kretschek][mathias] ([mkretschek][]).
 
 
 [express]: https://github.com/visionmedia/express
-[issue]: https://github.com/mkretschek/node-assetled/issues
+[issue]: https://github.com/mkretschek/node-assetly/issues
 [mathias]: http://mathias.ms
 [mkretschek]: https://github.com/mkretschek

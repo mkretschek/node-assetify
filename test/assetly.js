@@ -6,43 +6,43 @@
 
   var expect = require('expect.js'),
     express = require('express'),
-    assetled = require('../');
+    assetly = require('../');
 
 
-  describe('assetled', function () {
+  describe('assetly', function () {
     it('is accessible', function () {
-      expect(assetled).not.to.be(undefined);
+      expect(assetly).not.to.be(undefined);
     });
 
 
     it('is a function', function () {
-      expect(assetled).to.be.a('function');
+      expect(assetly).to.be.a('function');
     });
 
 
     describe('uri formatting', function () {
       it('accepts `null` as base uri', function () {
-        var a = assetled(null);
+        var a = assetly(null);
         expect(a).to.be.a('function');
         expect(a('foo.jpg')).to.be('foo.jpg');
       });
 
 
       it('works without params', function () {
-        var a = assetled();
+        var a = assetly();
         expect(a).to.be.a('function');
         expect(a('foo')).to.be('foo');
       });
 
 
       it('appends a filename to a base uri', function () {
-        var a = assetled('//base.uri');
+        var a = assetly('//base.uri');
         expect(a('filename.ext')).to.be('//base.uri/filename.ext');
       });
 
 
       it('handles missing trailing slashes', function () {
-        var a = assetled('//base.uri');
+        var a = assetly('//base.uri');
         expect(a()).to.be('//base.uri');
         expect(a('path')).to.be('//base.uri/path');
         expect(a('/path')).to.be('//base.uri/path');
@@ -56,7 +56,7 @@
       var a;
 
       before(function () {
-        a = assetled('//base.uri', {v : 1});
+        a = assetly('//base.uri', {v : 1});
       });
 
 
@@ -89,7 +89,7 @@
 
 
       it('works with stringified querystrings', function () {
-        var b = assetled('foo', 'v=1');
+        var b = assetly('foo', 'v=1');
         b.provides('bar', 'bar', {v : 2});
         expect(b()).to.be('foo?v=1');
         expect(b.bar()).to.be('foo/bar?v=2');
@@ -102,11 +102,11 @@
       var a;
 
       before(function () {
-        a = assetled('//base.uri').provides('sub');
+        a = assetly('//base.uri').provides('sub');
       });
 
 
-      it('allows setting a chain of assetled functions', function () {
+      it('allows setting a chain of assetly functions', function () {
         expect(a).to.be.a('function');
         expect(a).to.have.property('sub');
         expect(a.sub).to.be.a('function');
@@ -162,8 +162,8 @@
         });
 
 
-        it('allows the path param to be an assetled object', function () {
-          var hoo = assetled('hoopath', {w : 2});
+        it('allows the path param to be an assetly object', function () {
+          var hoo = assetly('hoopath', {w : 2});
           a.provides('woo', null, {v : 1});
           a.woo.provides('hoo', hoo);
           expect(a.woo.hoo()).to.be('//base.uri/hoopath?v=1&w=2');
@@ -176,7 +176,7 @@
       var a;
 
       before(function () {
-        a = assetled('//base.uri');
+        a = assetly('//base.uri');
       });
 
 
