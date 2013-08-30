@@ -1,7 +1,7 @@
 {
-  "name" : "assetify",
+  "name" : "assetled",
   "description" : "Helpers for working with static files in express projects.",
-  "version" : "0.0.1",
+  "version" : "0.1.0",
   "author" : {
     "name" : "Mathias Kretschek",
     "email" : "mathias@kretschek.com.br"
@@ -12,24 +12,26 @@
       "email" : "mathias@kretschek.com.br"
     }
   ],
-  "bugs" : "https://github.com/mkretschek/node-assetify/issues",
+  "bugs" : "https://github.com/mkretschek/node-assetled/issues",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/mkretschek/node-assetify.git"
+    "url" : "https://github.com/mkretschek/node-assetled.git"
   },
   "scripts" : {
-    "test" : "mocha -R spec -u bdd"
+    "test" : "NODE_ENV=test ./node_modules/.bin/mocha --check-leaks --colors --recursive -R dot -u bdd ./test"
   },
   "dependencies" : {
-    "underscore" : "1.4"
+    "underscore" : "~1.5.1"
   },
   "devDependencies" : {
-    "express" : "3.0",
-    "mocha" : "1.9",
-    "expect.js" : "0.2"
+    "express" : "~3.3.7",
+    "mocha" : "~1.12.0",
+    "expect.js" : "~0.2.0",
+    "jshint" : "~2.1.10"
   },
   "engine" : {
-    "node" : "0.10"
+    "node" : ">= 0.8.x"
   },
-  "main" : "./index.js"
+  "main" : "./index.js",
+  "license" : "MIT"
 }
