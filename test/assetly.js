@@ -1,5 +1,5 @@
 
-/* globals describe : true, it : true, before : true */
+/* globals describe : true, it : true, before : true, beforeEach : true */
 
 (function () {
   'use strict';
@@ -32,6 +32,16 @@
         var a = assetly();
         expect(a).to.be.a('function');
         expect(a('foo')).to.be('foo');
+      });
+
+
+      it('works only with query string data', function () {
+        var a = assetly({v : 1}),
+          b = assetly('v=2');
+        expect(a()).to.be('?v=1');
+        expect(a('foo.txt')).to.be('foo.txt?v=1');
+        expect(b()).to.be('?v=2');
+        expect(b('bar.txt')).to.be('bar.txt?v=2');
       });
 
 
@@ -101,7 +111,7 @@
     describe('chaining', function () {
       var a;
 
-      before(function () {
+      beforeEach(function () {
         a = assetly('//base.uri').provides('sub');
       });
 
@@ -133,6 +143,15 @@
           expect(a.provides).to.be.a('function');
         });
 
+
+        it('makes the base path optional', function () {
+          a.provides('foo', {bar : 'baz'});
+          expect(a.foo()).to.be('//base.uri/foo?bar=baz');
+          a.provides('bar', 'baz=foo');
+          expect(a.bar()).to.be('//base.uri/bar?baz=foo');
+        });
+
+
         it('sets a sub-builder', function () {
           expect(a).not.to.have.property('foo');
           a.provides('foo');
@@ -144,7 +163,7 @@
 
         it('uses the sub-builder\'s name if the second argument is omitted',
           function () {
-            // a.foo was defined in the previous test
+            a.provides('foo');
             expect(a.foo()).to.be('//base.uri/foo');
           });
 

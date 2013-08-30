@@ -1,7 +1,7 @@
 {
   "name" : "assetly",
   "description" : "Helpers for working with static files in express projects.",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "author" : {
     "name" : "Mathias Kretschek",
     "email" : "mathias@kretschek.com.br"

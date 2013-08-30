@@ -1,5 +1,12 @@
 
-0.1.0 / 2013-08-29
+0.1.1 / 2013-08-30
+==================
+
+* changed: `assetly()` and `#provides()` now allow to skip the base path
+  providing querystring data as the second parameter.
+
+
+0.1.0 / 2013-08-30
 ==================
 
 Complete rewrite with significant changes to the API.

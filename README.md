@@ -16,7 +16,7 @@ builder functions for generating URIs. Like this:
 var assets;
 
 assets = assetly('//cdn.example.net')
-  .provides('js', ['js', {v : 1}])
+  .provides('js', {v : 1})
   .provides('css')
   .provides('img');
 
