@@ -1,1 +1,1 @@
-module.exports = require('./lib/assetify');
+module.exports = require('./lib/assetled');
