@@ -17,11 +17,11 @@ builder functions for generating URIs. Like this:
 var assets;
 
 assets = assetly('//cdn.example.net')
-  .provides('js', {v : 1})
+  .provides('js')
   .provides('css')
   .provides('img');
 
-assets.img.provides('brand');
+assets.img.provides('brand', 'b');
 
 assets.express(app);
 ```
@@ -35,7 +35,7 @@ html
     script(src=assets.js('main.js'))
     link(type='text/css', rel='stylesheet', href=assets.css('base.css'))
   body
-    img(src=assets.img.brand('navbar.png'), alt='Example')
+    img(src=assets.img.brand('logo-md.png'), alt='Example')
 ```
 
 Giving you...
@@ -48,7 +48,7 @@ Giving you...
     <link type="text/css" rel="stylesheet" href="//cdn.example.com/css/base.css" />
   </head>
   <body>
-    <img src="//cdn.example.com/img/b/medium.png" alt="Example" />
+    <img src="//cdn.example.com/img/b/logo-md.png" alt="Example" />
   </body>
 </html>
 ```
@@ -73,11 +73,12 @@ Require it.
 var assetly = require('assetly');
 ```
 
-Creating a builder is very straight forward. A simple builder would look
+Creating a builder is very straightforward. A simple builder would look
 like this:
 
 ```js
 var assets = assetly('//cdn.example.com');
+
 assets('main.js'); // '//cdn.example.com/main.js'
 assets('css/base.css'); // '//cdn.example.com/css/base.css'
 ```
