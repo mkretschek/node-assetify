@@ -6,8 +6,7 @@ is all it does, heh).
 
 [![Build Status](https://travis-ci.org/mkretschek/node-assetly.png?branch=master)](https://travis-ci.org/mkretschek/node-assetly)
 [![NPM version](https://badge.fury.io/js/assetly.png)](http://badge.fury.io/js/assetly)
-[![Dependency Status](https://www.versioneye.com/user/projects/52204ed2632bac6ce0002ab9/badge.png)](https://www.versioneye.com/user/projects/52204ed2632bac6ce0002ab9)
-
+[![Dependency Status](https://gemnasium.com/mkretschek/node-assetly.png)](https://gemnasium.com/mkretschek/node-assetly)
 
 If you want an easier way to set your assets' URIs, being able to change
 them in a single place, `assetly` may come in handy. It helps creating
