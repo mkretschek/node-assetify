@@ -24,7 +24,7 @@
     "underscore" : "~1.5.1"
   },
   "devDependencies" : {
-    "express" : "~3.3.7",
+    "express" : "~3.4.0",
     "mocha" : "~1.13.0",
     "expect.js" : "~0.2.0",
     "jshint" : "~2.1.10"
